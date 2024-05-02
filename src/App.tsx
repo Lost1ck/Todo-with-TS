@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react"
+import TSCheck from "./TSCheck";
 
 type event = {
   key: string;
@@ -44,26 +45,28 @@ export default function App() {
   }
   
   return (
-    <div>
+    <><div>
       <div>
-          <ul>
-            {tasks.map((task, i) => (
-              <li key={i}>{task}</li>
-            ))}
-          </ul>
+        <ul>
+          {tasks.map((task, i) => (
+            <li key={i}>{task}</li>
+          ))}
+        </ul>
       </div>
       <hr />
       <div>
-      <label htmlFor="taskInput">
-            <input
-              onKeyDown={handleKeyPress}
-              onChange={handleInput}
-              value={input}
-              type="text"
-              id='taskInput'
-            />
-          </label>
+        <label htmlFor="taskInput">
+          <input
+            onKeyDown={handleKeyPress}
+            onChange={handleInput}
+            value={input}
+            type="text"
+            id='taskInput' />
+        </label>
       </div>
     </div>
+    <div>
+      <TSCheck />
+    </div></>
   )
 }
