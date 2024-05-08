@@ -42,6 +42,47 @@ export default function TSCheck() {
       this.item = item;
     }
   }
+  // Обобщённая функция преобразования массива: Напишите функцию, которая принимает массив элементов одного типа и функцию преобразования, и возвращает новый массив, содержащий результат применения функции к каждому элементу исходного массива.
+
+  const arr = [123, 415, 346, 372];
+  function convertSmall(data: number[]): number[] | void {
+    for(let number of data) {
+      data[number] *= 2
+    }
+    return;
+  }
+
+  type TConvertFunc<T> = (data: T) => T;
+  
+  function convertationArray<T> (words: T, func: TConvertFunc<T>): T {
+    return func(words)
+  }
+
+  // Обобщённый класс пары: Создайте класс, представляющий пару значений (например, ключ и значение). Используйте дженерики, чтобы класс мог работать с различными типами значений.
+
+  class pairs<T,U> {
+    private first: T;
+    private second: U;
+
+    constructor(first: T, second: U) {
+      this.first = first;
+      this.second = second;
+    }
+
+    goFirst(): T{
+      return this.first;
+    }
+
+    goSecond(): U{
+      return this.second;
+    }
+  }
+
+  // Обобщённый интерфейс функции: Определите интерфейс для функции, которая принимает два аргумента одного типа и возвращает значение этого же типа. Используйте дженерики для определения типа аргументов и возвращаемого значения.
+
+  interface backTypeFunc<T> {
+    (a: T, b: T): T;
+  };
 
   return (
     <>
